@@ -436,6 +436,134 @@ let tandooriwharf = new Restaurant(
 );
 
 /* Events Objects */
+let rainbowmusical = new Event(
+  'e0',
+  'Event',
+  'Rainbow Musical',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/12_musical.jpg',
+  'Photo by Ahmad Odeh on Unsplash',
+  false,
+  'Musical',
+  '23.03.2020',
+  '19:00',
+  '36'
+);
+let bent = new Event(
+  'e1',
+  'Event',
+  'Bent',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/13_musical.jpg',
+  'Photo by NeONBRAND on Unsplash',
+  false,
+  'Musical',
+  '11.03.2020',
+  '20:00',
+  '46'
+);
+let armsoflight = new Event(
+  'e2',
+  'Event',
+  'Arms of Light',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/09_rock_concert.jpg',
+  'Photo by Dan Gold on Unsplash',
+  false,
+  'Concert',
+  '16.03.2020',
+  '19:30',
+  '52'
+);
+let thedefensive = new Event(
+  'e3',
+  'Event',
+  'The Defensive',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/10_rock_concert.jpg',
+  'Photo by m on Unsplash',
+  false,
+  'Concert',
+  '07.04.2020',
+  '20:00',
+  '60'
+);
+let thenicegals = new Event(
+  'e4',
+  'Event',
+  'The Nice Gals',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/11_rock_concert.jpg',
+  'Photo by Jonathan Tieh on Unsplash',
+  false,
+  'Concert',
+  '16.04.2020',
+  '20:00',
+  '42'
+);
+let oratorycompositions = new Event(
+  'e5',
+  'Event',
+  'Oratory Compositions',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/14_concert.jpg',
+  'Photo by Aditya Chinchure on Unsplash',
+  false,
+  'Concert',
+  '03.05.2020',
+  '20:00',
+  '72'
+);
+let classicalevening = new Event(
+  'e6',
+  'Event',
+  'A Classical Evening',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/15_concert.jpg',
+  'Photo by Jonathan Tieh on Unsplash',
+  false,
+  'Concert',
+  '06.05.2020',
+  '19:00',
+  '60'
+);
+let analoginstruments = new Event(
+  'e7',
+  'Event',
+  'Analog Instruments',
+  'Lorem Ipsum.',
+  'XXX',
+  'XXX',
+  'XXX',
+  'img/16_concert.jpg',
+  'Photo by Corey Young on Unsplash',
+  false,
+  'Concert',
+  '12.05.2020',
+  '20:00',
+  '80'
+);
 
 console.log(itemArray);
 
