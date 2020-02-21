@@ -29,15 +29,15 @@ class LocationClass {
   };
   display() {
     return `
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
-          <div class="relative">
+          <div class="relative d-sm-none d-md-block d-lg-block">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
             </div>
             <div class="absoluteBottom">
-              <p class="text-white">${this.credits}</p>
+              <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
             </div>
           </div>
           <div class="card-body">
@@ -65,15 +65,15 @@ class Restaurant extends LocationClass {
 
   display() {
     return `
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
-          <div class="relative">
+          <div class="relative d-sm-none d-md-block d-lg-block">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-success">${this.classtype}</span></h4>
             </div>
             <div class="absoluteBottom">
-              <p class="text-white">${this.credits}</p>
+              <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
             </div>
           </div>
           <div class="card-body">
@@ -105,23 +105,24 @@ class EventClass extends LocationClass {
 
   display() {
     return `
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
-          <div class="relative">
+          <div class="relative d-sm-none d-md-block d-lg-block">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
             </div>
             <div class="absoluteBottom">
-              <p class="text-white">${this.credits}</p>
+              <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
             </div>
           </div>
           <div class="card-body">
-            <h4 class="card-title">${this.name}, ${this.city}</h4>
-            <h5 class="card-text"><span class="badge badge-warning text-white">${this.type}</span></h5>
-            <p class="card-text">${this.type}, ticket price €${this.ticketprice}.00</p>
-            <p class="card-text">${this.eventdate}, starts at ${this.eventtime}hr</p>
-            <p class="card-text">${this.address}, ${this.zip}, ${this.city}</p>
+            <h4 class="card-title">${this.name}</h4>
+            <h5 class="card-text"><span class="badge badge-danger text-white">${this.type}</span></h5>
+            <p class="card-text"><strong>Ticket price: €${this.ticketprice}.00</strong></p>
+            <p class="card-text">${this.eventdate}, ${this.eventtime}hr</p>
+            <p class="card-text text-left">${this.description}</p>
+            <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
           </div>
         </div>
       </div>
@@ -244,7 +245,7 @@ let greenhouse = new LocationClass(
   'l9',
   'Location',
   'Green House',
-  'A decrepit former conservatory in a rougher part of the city.  It was built after World War II.  The area is believed by locals to have a powerful curse laid on it. An infamous murder happened here.',
+  'A decrepit former conservatory in a rougher part of the city.  It was built after World War II.  The area is believed by locals to have a powerful curse laid on it.',
   'Innsbruck',
   '6020',
   'Doktor-Glatz-Straße 20',
@@ -271,7 +272,7 @@ let lakestage = new LocationClass(
   'A modern event location at the shore of the lake. It was built in 2012. It is reported that those who visit it eventually die in strange and unforeseeable accidents. Rumor has it an old witch once lurked here.',
   'Bregenz',
   '6900',
-  'Platz der Philharmoniker 1',
+  'Philharmoniker Platz 1',
   'img/23_location.jpg',
   'Photo by Max Bovkun on Unsplash',
   false
@@ -304,7 +305,7 @@ let rudgerhouse = new LocationClass(
   'l14',
   'Location',
   'Rudger House',
-  'A former movie theater located in a rougher part of the city.  It was built in 1954.  Some locals claim to have seen the ghost of a serial killer wandering around the premises. A teenage boy who went to visit it a few months ago vanished for weeks, only to turn up thousands of miles away with no memory of what happened.',
+  'A former movie theater located in a rougher part of the city.  It was built in 1954.  Some locals claim to have seen the ghost of a serial killer wandering around the premises.',
   'Gramatneusiedl',
   '2440',
   'Weinbergweg 19 - 21',
@@ -333,7 +334,7 @@ let boilingmoon = new Restaurant(
   'r1',
   'Restaurant',
   'Boiling Moon',
-  'Exquisite Chinese cuisine for the whole family.',
+  'Exquisite Chinese cuisine for the whole family. A large selection, a great location and even a playground for the kids.',
   'Oggau am Neusiedler See',
   '7063',
   'Seegasse 12',
@@ -436,14 +437,14 @@ let tandooriwharf = new Restaurant(
 );
 
 /* Events Objects */
-let rainbowmusical = new Event(
+let rainbowmusical = new EventClass(
   'e0',
   'Event',
   'Rainbow Musical',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'Discover the world of color in music. How the hues turn to blues, how pigments turn to imaginary figments.',
+  'Klagenfurt',
+  '9020',
+  'Uteweg 23',
   'img/12_musical.jpg',
   'Photo by Ahmad Odeh on Unsplash',
   false,
@@ -452,14 +453,14 @@ let rainbowmusical = new Event(
   '19:00',
   '36'
 );
-let bent = new Event(
+let bent = new EventClass(
   'e1',
   'Event',
   'Bent',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'The millenial musical. How can reality be bent to fullfill the dreams and wishes that this generations is entitled to?',
+  'Salzburg',
+  '6900',
+  'Haslachstraße 18',
   'img/13_musical.jpg',
   'Photo by NeONBRAND on Unsplash',
   false,
@@ -468,7 +469,7 @@ let bent = new Event(
   '20:00',
   '46'
 );
-let armsoflight = new Event(
+let armsoflight = new EventClass(
   'e2',
   'Event',
   'Arms of Light',
@@ -484,7 +485,7 @@ let armsoflight = new Event(
   '19:30',
   '52'
 );
-let thedefensive = new Event(
+let thedefensive = new EventClass(
   'e3',
   'Event',
   'The Defensive',
@@ -500,7 +501,7 @@ let thedefensive = new Event(
   '20:00',
   '60'
 );
-let thenicegals = new Event(
+let thenicegals = new EventClass(
   'e4',
   'Event',
   'The Nice Gals',
@@ -516,7 +517,7 @@ let thenicegals = new Event(
   '20:00',
   '42'
 );
-let oratorycompositions = new Event(
+let oratorycompositions = new EventClass(
   'e5',
   'Event',
   'Oratory Compositions',
@@ -532,7 +533,7 @@ let oratorycompositions = new Event(
   '20:00',
   '72'
 );
-let classicalevening = new Event(
+let classicalevening = new EventClass(
   'e6',
   'Event',
   'A Classical Evening',
@@ -548,7 +549,7 @@ let classicalevening = new Event(
   '19:00',
   '60'
 );
-let analoginstruments = new Event(
+let analoginstruments = new EventClass(
   'e7',
   'Event',
   'Analog Instruments',
