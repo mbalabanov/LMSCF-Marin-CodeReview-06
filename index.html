@@ -17,21 +17,16 @@
     }
     .absolute {
       position: absolute;
+      width: 6rem;
       top: 1rem;
       right:  1rem;
-    }
-    .peopleHeart {
-      width: 2rem;
-    }
-    .favoritesHeart {
-      width: 4rem;
     }
   </style>
 </head>
 
-<body class="py-5">
+<body class="py-5 bg-info">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">Travel-O-Matic</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,19 +34,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="#locations-section">Locations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Locations</a>
+            <a class="nav-link" href="#restaurants-section">Restaurants</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="restaurants.html">Restaurants</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="events.html">Events</a>
+            <a class="nav-link" href="#events-section">Events</a>
           </li>
         </ul>
       </div>
@@ -60,28 +50,27 @@
 
   <div class="container">
 
-    <!--
     <header class="jumbotron my-4">
       <h1 class="display-3">A Warm Welcome!</h1>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
-      <a href="#" class="btn btn-info btn-lg">Call to action!</a>
+      <p class="lead">The more you know, the better you travel. On Travel-O-Matic you learn everything you need to know about the <a href="#locations-section">locations</a> in your favorite city, the best <a href="#restaurants-section">restaurants</a> and upcoming <a href="#events-section">music events.</a></p>
     </header>
-	 -->
-
-    <div class="row text-center mt-5" id="locationContainer"></div>
     <div class="row">
-      <div class="col-12 p-3 mb-2 bg-info text-white">Favorites</div>
+      <div class="col-12 mt-2 pt-2 text-light text-center" id="locations-section"><h2>Locations</h2></div>
     </div>
-    <div class="row text-center py-2" id="favoritesContainer">
-		  <div class="col-12">
-			  No favorites added yet
-		  </div>
+    <div class="row text-center mt-2" id="Location"></div>
+    <div class="row">
+      <div class="col-12 p-3 mt-5 pt-4 text-light text-center" id="restaurants-section"><h2>Restaurants</h2></div>
     </div>
+    <div class="row text-center mt-2" id="Restaurant"></div>
+    <div class="row">
+      <div class="col-12 p-3 mt-5 pt-4 text-light text-center" id="events-section"><h2>Events</h2></div>
+    </div>
+    <div class="row text-center mt-2" id="Event"></div>
   </div>
 
-  <footer class="py-5 bg-dark">
+  <footer class="bg-light">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy;2020 Travel-O-Matic</p>
+      <p class="py-4 text-center">Copyright &copy;2020 Travel-O-Matic</p>
     </div>
   </footer>
 
@@ -89,10 +78,11 @@
   <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
   <script src="js/functions.js"></script>
 
-
 	<script>
     $( document ).ready(function() {
-      generateItems();
+      generateItems('Location');
+      generateItems('Restaurant');
+      generateItems('Event');
     });
 	</script>
 </body>
