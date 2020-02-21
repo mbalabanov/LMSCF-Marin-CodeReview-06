@@ -11,9 +11,10 @@ class LocationClass {
   zip: string;
   address: string;
   photo: string;
+  credits: string;
   favorite: boolean;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, favorite) {
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite) {
     this.id = id;
     this.classtype = classtype;
     this.name = name;
@@ -22,6 +23,7 @@ class LocationClass {
     this.zip = zip;
     this.address = address;
     this.photo = photo;
+    this.credits = credits;
     this.favorite = favorite;
     itemArray.push(this);
   };
@@ -31,8 +33,11 @@ class LocationClass {
         <div class="card h-100">
           <div class="relative">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
-            <div class="absolute">
+            <div class="absoluteTop">
               <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
+            </div>
+            <div class="absoluteBottom">
+              <p class="text-white">${this.credits}</p>
             </div>
           </div>
           <div class="card-body">
@@ -51,8 +56,8 @@ class Restaurant extends LocationClass {
   phone: string;
   web: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, favorite, type, phone, web) {
-    super(id, classtype, name, description, city, zip, address, photo, favorite);
+  constructor(id, classtype, name, description, city, zip, address, photo, credits,favorite, type, phone, web) {
+    super(id, classtype, name, description, city, zip, address, photo, credits, favorite);
     this.type = type;
     this.phone = phone;
     this.web = web;
@@ -64,8 +69,11 @@ class Restaurant extends LocationClass {
         <div class="card h-100">
           <div class="relative">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
-            <div class="absolute">
+            <div class="absoluteTop">
               <h4><span class="badge badge-light text-success">${this.classtype}</span></h4>
+            </div>
+            <div class="absoluteBottom">
+              <p class="text-white">${this.credits}</p>
             </div>
           </div>
           <div class="card-body">
@@ -73,7 +81,7 @@ class Restaurant extends LocationClass {
             <h5 class="card-text"><span class="badge badge-success text-white">${this.type}</span></h5>
             <p class="card-text text-left">${this.description}</p>
             <p class="card-text">Tel. ${this.phone}<br><a href="${this.web}" target="_blank">${this.web}</a></p>
-            <p class="card-text"><strong>${this.address}, ${this.zip}, ${this.city}</strong></p>
+            <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
           </div>
         </div>
       </div>
@@ -87,8 +95,8 @@ class EventClass extends LocationClass {
   eventtime: string;
   ticketprice: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, favorite, type, eventdate, eventtime, ticketprice) {
-    super(id, classtype, name, description, city, zip, address, photo, favorite);
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite, type, eventdate, eventtime, ticketprice) {
+    super(id, classtype, name, description, city, zip, address, photo, credits, favorite);
     this.type = type;
     this.eventdate = eventdate;
     this.eventtime = eventtime;
@@ -101,8 +109,11 @@ class EventClass extends LocationClass {
         <div class="card h-100">
           <div class="relative">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
-            <div class="absolute">
+            <div class="absoluteTop">
               <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
+            </div>
+            <div class="absoluteBottom">
+              <p class="text-white">${this.credits}</p>
             </div>
           </div>
           <div class="card-body">
@@ -130,6 +141,7 @@ let arenaviolet = new LocationClass(
   '9020',
   'Uteweg 23',
   'img/22_location.jpg',
+  'Photo by Mateus Campos Felipe on Unsplash',
   false
 );
 let aubergeamuse = new LocationClass(
@@ -141,6 +153,7 @@ let aubergeamuse = new LocationClass(
   '4600',
   'Grieskirchner Str. 42',
   'img/29_location.jpg',
+  'Photo by Andreas Selter on Unsplash',
   false
 );
 let baboonorchard = new LocationClass(
@@ -152,6 +165,7 @@ let baboonorchard = new LocationClass(
   '2700',
   'Zehnergürtel 12',
   'img/32_location.jpg',
+  'Photo by Igor Karimov on Unsplash',
   false
 );
 let brucknerhof = new LocationClass(
@@ -163,6 +177,7 @@ let brucknerhof = new LocationClass(
   '4020',
   'Linke Brücken Str. 12',
   'img/18_location.jpg',
+  'Photo by Anthony Esau on Unsplash',
   false
 );
 let concertvariete = new LocationClass(
@@ -174,6 +189,7 @@ let concertvariete = new LocationClass(
   '6900',
   'Haslachstraße 18',
   'img/24_location.jpg',
+  'Photo by Rémi Boyer on Unsplash',
   false
 );
 let dapperparadise = new LocationClass(
@@ -185,6 +201,7 @@ let dapperparadise = new LocationClass(
   '7063',
   'Seegasse 12',
   'img/28_location.jpg',
+  'Photo by Lea Katharina on Unsplash',
   false
 );
 let embers = new LocationClass(
@@ -196,6 +213,7 @@ let embers = new LocationClass(
   '7000',
   'Esterhazyplatz 1',
   'img/25_location.jpg',
+  'Photo by Annie Spratt on Unsplash',
   false
 );
 let emperorslodge = new LocationClass(
@@ -207,6 +225,7 @@ let emperorslodge = new LocationClass(
   '4830',
   'Salzbergstraße 21',
   'img/31_location.jpg',
+  'Photo by Braedon McLeod on Unsplash',
   false
 );
 let gentalioromano = new LocationClass(
@@ -218,6 +237,7 @@ let gentalioromano = new LocationClass(
   '3390',
   'Prinzlstraße 22',
   'img/26_location.jpg',
+  'Photo by James Hose Jr on Unsplash',
   false
 );
 let greenhouse = new LocationClass(
@@ -229,6 +249,7 @@ let greenhouse = new LocationClass(
   '6020',
   'Doktor-Glatz-Straße 20',
   'img/21_location.jpg',
+  'Photo by Bruno Adamo on Unsplash',
   false
 );
 let hermestower = new LocationClass(
@@ -240,6 +261,7 @@ let hermestower = new LocationClass(
   '1220',
   'Donau-City-Straße 11',
   'img/17_location.jpg',
+  'Photo by Rahul Bhogal on Unsplash',
   false
 );
 let lakestage = new LocationClass(
@@ -251,6 +273,7 @@ let lakestage = new LocationClass(
   '6900',
   'Platz der Philharmoniker 1',
   'img/23_location.jpg',
+  'Photo by Max Bovkun on Unsplash',
   false
 );
 let lemongrass = new LocationClass(
@@ -262,6 +285,7 @@ let lemongrass = new LocationClass(
   '4690',
   'Gmundner Str. 9',
   'img/30_location.jpg',
+  'Photo by Marjolein vV on Unsplash',
   false
 );
 let palaislang = new LocationClass(
@@ -273,6 +297,7 @@ let palaislang = new LocationClass(
   '8010',
   'Harrachgasse 1',
   'img/20_location.jpg',
+  'Photo by ilya gorborukov on Unsplash',
   false
 );
 let rudgerhouse = new LocationClass(
@@ -284,6 +309,7 @@ let rudgerhouse = new LocationClass(
   '2440',
   'Weinbergweg 19 - 21',
   'img/19_location.jpg',
+  'Photo by Hardik Pandya on Unsplash',
   false
 );
 
@@ -297,6 +323,7 @@ let backstage = new Restaurant(
   '4600',
   'Grieskirchner Str. 42',
   'img/01_blueberry_toast.jpg',
+  'Photo by Joseph Gonzalez on Unsplash',
   false,
   'Burgers and Steaks',
   '+43(6825)777-4678',
@@ -311,6 +338,7 @@ let boilingmoon = new Restaurant(
   '7063',
   'Seegasse 12',
   'img/02_sandwitch_boiled_egg.jpg',
+  'Photo by Joseph Gonzalez on Unsplash',
   false,
   'Chinese',
   '+43(5902)414-1766',
@@ -325,6 +353,7 @@ let harvest = new Restaurant(
   '2440',
   'Weinbergweg 19 - 21',
   'img/03_cooked_food_black_bowl.jpg',
+  'Photo by Eiliv-Sonas Aceron on Unsplash',
   false,
   'Modern Vegetarian',
   '+43(4969)762-0070',
@@ -339,6 +368,7 @@ let orientalbalcony = new Restaurant(
   '2700',
   'Zehnergürtel 12',
   'img/04_pasta_dish_brown_plate.jpg',
+  'Photo by Brooke Lark on Unsplash',
   false,
   'Levantine',
   '+43(385)552-2357',
@@ -353,6 +383,7 @@ let maximus = new Restaurant(
   '7000',
   'Esterhazyplatz 1',
   'img/05_fruit_plate.jpg',
+  'Photo by Brooke Lark on Unsplash',
   false,
   'Italian',
   '+43(31)207-2665',
@@ -367,6 +398,7 @@ let palmlounge = new Restaurant(
   '3550',
   'Dr.-Karl-Dorrek-Straße 23',
   'img/06_slider_burger.jpg',
+  'Photo by Filipe de Rodrigues on Unsplash',
   false,
   'Casual American',
   '+43(4786)621-7541',
@@ -381,6 +413,7 @@ let sushimill = new Restaurant(
   '4690',
   'Gmundner Str. 9',
   'img/07_mixed_fruit.jpg',
+  'Photo by Stefan Johnson on Unsplash',
   false,
   'Japanese',
   '+43(486)003-3277',
@@ -395,6 +428,7 @@ let tandooriwharf = new Restaurant(
   '8010',
   'Harrachgasse 1',
   'img/08_baked_burger.jpg',
+  'Photo by Pablo Merchán Montes on Unsplash',
   false,
   'Indian',
   '+43(8244)797-4874',
