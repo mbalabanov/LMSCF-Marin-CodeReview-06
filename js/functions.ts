@@ -285,72 +285,104 @@ let rudgerhouse = new Location(
 let backstage = new Restaurant(
   'r0',
   'Backstage',
+  '',
+  'Wels',
+  '4600',
+  'Grieskirchner Str. 42',
+  'img/01_blueberry_toast.jpg',
   false,
   'Burgers and Steaks',
-  'l1',
   '+43(6825)777-4678',
   'backstagefood.at'
 );
 let boilingmoon = new Restaurant(
   'r1',
   'Boiling Moon',
+  '',
+  'Oggau am Neusiedler See',
+  '7063',
+  'Seegasse 12',
+  'img/02_sandwitch_boiled_egg.jpg',
   false,
   'Chinese',
-  'l5',
   '+43(5902)414-1766',
   'boilingtuesdays.com'
 );
 let harvest = new Restaurant(
   'r2',
   'Harvest',
+  '',
+  'Gramatneusiedl',
+  '2440',
+  'Weinbergweg 19 - 21',
+  'img/03_cooked_food_black_bowl.jpg',
   false,
   'Modern Vegetarian',
-  'l15',
   '+43(4969)762-0070',
   'restaurantharvest.at'
 );
 let orientalbalcony = new Restaurant(
   'r3',
   'Oriental Balcony',
+  '',
+  'Wiener Neustadt',
+  '2700',
+  'Zehnergürtel 12',
+  'img/04_pasta_dish_brown_plate.jpg',
   false,
   'Levantine',
-  'l2',
   '+43(385)552-2357',
   'orientalbalcony.at'
 );
 let maximus = new Restaurant(
   'r4',
   'Maximus',
+  '',
+  'Eisenstadt',
+  '7000',
+  'Esterhazyplatz 1',
+  'img/05_fruit_plate.jpg',
   false,
   'Italian',
-  'l6',
   '+43(31)207-2665',
   'maximusrestaurant.com'
 );
 let palmlounge = new Restaurant(
   'r5',
   'Palm Lounge',
+  '',
+  'Krems an der Donau',
+  '3550',
+  'Dr.-Karl-Dorrek-Straße 23',
+  'img/06_slider_burger.jpg',
   false,
   'Casual American',
-  'l8',
   '+43(4786)621-7541',
   'palmlounge.at'
 );
 let sushimill = new Restaurant(
   'r6',
   'Sushi Mill',
+  '',
+  'Schwanenstadt',
+  '4690',
+  'Gmundner Str. 9',
+  'img/07_mixed_fruit.jpg',
   false,
   'Japanese',
-  'l13',
   '+43(486)003-3277',
   'sushimill.at'
 );
 let tandooriwharf = new Restaurant(
   'r7',
   'Tandoori Wharf',
+  '',
+  'Graz',
+  '8010',
+  'Harrachgasse 1',
+  'img/08_baked_burger.jpg',
   false,
   'Indian',
-  '',
   '+43(8244)797-4874',
   'tandooriwharf.com'
 );
