@@ -31,7 +31,7 @@ class LocationClass {
     itemArray.push(this);
   };
   display() {
-    let prettydate = moment(this.creationdate).format('MMM Do YYYY, hh:mm');
+    let prettydate = moment(this.creationdate).format('MMM Do, YYYY, h:mm a');
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -101,7 +101,7 @@ class Restaurant extends LocationClass {
   };
 
   display() {
-    let prettydate = moment(this.creationdate).format('MMM Do YYYY, hh:mm');
+    let prettydate = moment(this.creationdate).format('MMM Do, YYYY, h:mm a');
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -177,8 +177,9 @@ class EventClass extends LocationClass {
   };
 
   display() {
-    let prettydate = moment(this.creationdate).format('MMM Do YYYY, hh:mm');
-    let prettyeventdate =  moment(this.eventdate).format('dddd, MMMM Do YYYY');
+    let prettydate = moment(this.creationdate).format('MMM Do, YYYY, h:mm a');
+    let prettyeventdate =  moment(this.eventdate).format('dddd, MMMM Do, YYYY');
+    let prettyeventtime =  moment(this.eventdate).format('h:mm a');
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -196,7 +197,7 @@ class EventClass extends LocationClass {
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
             <h5 class="card-text"><span class="badge badge-danger text-white">${this.type}</span></h5>
             <h5 class="card-text">€${this.ticketprice}</h5>
-            <p class="card-text"><strong>${prettyeventdate}, ${this.eventtime} Hr.</strong></p>
+            <p class="card-text"><strong>${prettyeventdate}, ${prettyeventtime}</strong></p>
             <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
           </div>
           <div class="card-footer">
@@ -227,7 +228,7 @@ class EventClass extends LocationClass {
               <h4 class="py-4" >${this.name}</h4>
               <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
               <h5><span class="badge badge-danger text-white">${this.type}</span></h5>
-              <h5><strong>€${this.ticketprice}</strong><br>${prettyeventdate}, ${this.eventtime} Hr.</h5>
+              <h5><strong>€${this.ticketprice}</strong><br>${prettyeventdate}, ${prettyeventtime}</h5>
               <p>${this.description}</p>
             </div>
             <div class="modal-footer">
