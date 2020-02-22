@@ -1,4 +1,4 @@
-/* Array Section */
+/* Array to be used for all objects */
 let itemArray = [];
 
 /* Classes Section */
@@ -32,7 +32,7 @@ class LocationClass {
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
           <div class="relative d-none d-md-block d-lg-block">
-            <img class="card-img-top" src="${this.photo}" alt="${this.name}">
+            <img class="card-img-top" src="${this.photo}" alt="${this.name}"  data-toggle="modal" data-target="#modal${this.id}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-primary">${this.classtype}</span></h4>
             </div>
@@ -41,9 +41,36 @@ class LocationClass {
             </div>
           </div>
           <div class="card-body">
-            <h4 class="card-title">${this.name}</h4>
+            <h4 class="card-title" data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
-            <p class="card-text text-left">${this.description}</p>
+            <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="modal${this.id}" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modallabel${this.id}">${this.name}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="relative">
+                <img class="card-img-top" src="${this.photo}" alt="${this.name}">
+                <div class="absoluteTop">
+                  <h4><span class="badge badge-light text-primary">${this.classtype}</span></h4>
+                </div>
+                <div class="absoluteBottom">
+                  <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
+                </div>
+              </div>
+              <h4 data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
+              <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
+              <p class="text-left">${this.description}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -68,7 +95,7 @@ class Restaurant extends LocationClass {
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
           <div class="relative d-none d-md-block d-lg-block">
-            <img class="card-img-top" src="${this.photo}" alt="${this.name}">
+            <img class="card-img-top" src="${this.photo}" alt="${this.name}" data-toggle="modal" data-target="#modal${this.id}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-success">${this.classtype}</span></h4>
             </div>
@@ -77,15 +104,44 @@ class Restaurant extends LocationClass {
             </div>
           </div>
           <div class="card-body">
-            <h4 class="card-title">${this.name}</h4>
+            <h4 class="card-title" data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
             <h5 class="card-text"><span class="badge badge-success text-white">${this.type}</span></h5>
-            <p class="card-text"><strong>Tel. ${this.phone}<br><a href="${this.web}" target="_blank">${this.web}</a></strong></p>
-            <p class="card-text text-left">${this.description}</p>
+            <p class="card-text"><strong>Tel. ${this.phone}<br><a href="http://${this.web}" target="_blank">${this.web}</a></strong></p>
+            <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
           </div>
         </div>
       </div>
-    `;
+      <!-- Modal -->
+      <div class="modal fade" id="modal${this.id}" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modallabel${this.id}">${this.name}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="relative">
+                <img class="card-img-top" src="${this.photo}" alt="${this.name}">
+                <div class="absoluteTop">
+                  <h4><span class="badge badge-light text-success">${this.classtype}</span></h4>
+                </div>
+                <div class="absoluteBottom">
+                  <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
+                </div>
+              </div>
+              <h4 data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
+              <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
+              <h5><span class="badge badge-success text-white">${this.type}</span></h5>
+              <p><strong>Tel. ${this.phone}, <a href="http://${this.web}" target="_blank">${this.web}</a></strong></p>
+              <p class="text-left">${this.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
   };
 };
 
@@ -108,7 +164,7 @@ class EventClass extends LocationClass {
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
           <div class="relative d-none d-md-block d-lg-block">
-            <img class="card-img-top" src="${this.photo}" alt="${this.name}">
+            <img class="card-img-top" src="${this.photo}" alt="${this.name}" data-toggle="modal" data-target="#modal${this.id}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
             </div>
@@ -117,16 +173,45 @@ class EventClass extends LocationClass {
             </div>
           </div>
           <div class="card-body">
-            <h4 class="card-title">${this.name}</h4>
+            <h4 class="card-title" data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
             <h5 class="card-text"><span class="badge badge-danger text-white">${this.type}</span></h5>
             <h5 class="card-text">€${this.ticketprice}</h5>
-            <p class="card-text"><strong>${this.eventdate}, ${this.eventtime} Hr</strong></p>
-            <p class="card-text text-left">${this.description}</p>
+            <p class="card-text"><strong>${this.eventdate}, ${this.eventtime} Hr.</strong></p>
+            <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
           </div>
         </div>
       </div>
-    `;
+      <!-- Modal -->
+      <div class="modal fade" id="modal${this.id}" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modallabel${this.id}">${this.name}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="relative">
+                <img class="card-img-top" src="${this.photo}" alt="${this.name}">
+                <div class="absoluteTop">
+                  <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
+                </div>
+                <div class="absoluteBottom">
+                  <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
+                </div>
+              </div>
+              <h4>${this.name}</h4>
+              <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
+              <h5><span class="badge badge-danger text-white">${this.type}</span></h5>
+              <h5><strong>€${this.ticketprice}</strong>, ${this.eventdate}, ${this.eventtime} Hr</h5>
+              <p class="text-left">${this.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
   };
 };
 
@@ -537,7 +622,7 @@ let classicalevening = new EventClass(
   'e6',
   'Event',
   'A Classical Evening',
-  'An orchestra, a large choir and solo artists will present the music from across the centuries of classical music.',
+  'An orchestra, a large choir and solo artists will present music from across the centuries of classical music.',
   'Graz',
   '8010',
   'Harrachgasse 1',
