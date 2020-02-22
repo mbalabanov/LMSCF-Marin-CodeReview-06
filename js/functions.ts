@@ -31,10 +31,10 @@ class LocationClass {
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
-          <div class="relative d-sm-none d-md-block d-lg-block">
+          <div class="relative d-none d-md-block d-lg-block">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
             <div class="absoluteTop">
-              <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
+              <h4><span class="badge badge-light text-primary">${this.classtype}</span></h4>
             </div>
             <div class="absoluteBottom">
               <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
@@ -67,7 +67,7 @@ class Restaurant extends LocationClass {
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
-          <div class="relative d-sm-none d-md-block d-lg-block">
+          <div class="relative d-none d-md-block d-lg-block">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-success">${this.classtype}</span></h4>
@@ -78,10 +78,10 @@ class Restaurant extends LocationClass {
           </div>
           <div class="card-body">
             <h4 class="card-title">${this.name}</h4>
-            <h5 class="card-text"><span class="badge badge-success text-white">${this.type}</span></h5>
-            <p class="card-text text-left">${this.description}</p>
-            <p class="card-text">Tel. ${this.phone}<br><a href="${this.web}" target="_blank">${this.web}</a></p>
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
+            <h5 class="card-text"><span class="badge badge-success text-white">${this.type}</span></h5>
+            <p class="card-text"><strong>Tel. ${this.phone}<br><a href="${this.web}" target="_blank">${this.web}</a></strong></p>
+            <p class="card-text text-left">${this.description}</p>
           </div>
         </div>
       </div>
@@ -107,7 +107,7 @@ class EventClass extends LocationClass {
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
-          <div class="relative d-sm-none d-md-block d-lg-block">
+          <div class="relative d-none d-md-block d-lg-block">
             <img class="card-img-top" src="${this.photo}" alt="${this.name}">
             <div class="absoluteTop">
               <h4><span class="badge badge-light text-danger">${this.classtype}</span></h4>
@@ -118,11 +118,11 @@ class EventClass extends LocationClass {
           </div>
           <div class="card-body">
             <h4 class="card-title">${this.name}</h4>
-            <h5 class="card-text"><span class="badge badge-danger text-white">${this.type}</span></h5>
-            <p class="card-text"><strong>Ticket price: €${this.ticketprice}.00</strong></p>
-            <p class="card-text">${this.eventdate}, ${this.eventtime}hr</p>
-            <p class="card-text text-left">${this.description}</p>
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
+            <h5 class="card-text"><span class="badge badge-danger text-white">${this.type}</span></h5>
+            <h5 class="card-text">€${this.ticketprice}</h5>
+            <p class="card-text"><strong>${this.eventdate}, ${this.eventtime} Hr</strong></p>
+            <p class="card-text text-left">${this.description}</p>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ let arenaviolet = new LocationClass(
   '9020',
   'Uteweg 23',
   'img/22_location.jpg',
-  'Photo by Mateus Campos Felipe on Unsplash',
+  'Photo: Mateus Campos Felipe',
   false
 );
 let aubergeamuse = new LocationClass(
@@ -154,7 +154,7 @@ let aubergeamuse = new LocationClass(
   '4600',
   'Grieskirchner Str. 42',
   'img/29_location.jpg',
-  'Photo by Andreas Selter on Unsplash',
+  'Photo: Andreas Selter',
   false
 );
 let baboonorchard = new LocationClass(
@@ -166,7 +166,7 @@ let baboonorchard = new LocationClass(
   '2700',
   'Zehnergürtel 12',
   'img/32_location.jpg',
-  'Photo by Igor Karimov on Unsplash',
+  'Photo: Igor Karimov',
   false
 );
 let brucknerhof = new LocationClass(
@@ -178,7 +178,7 @@ let brucknerhof = new LocationClass(
   '4020',
   'Linke Brücken Str. 12',
   'img/18_location.jpg',
-  'Photo by Anthony Esau on Unsplash',
+  'Photo: Anthony Esau',
   false
 );
 let concertvariete = new LocationClass(
@@ -190,7 +190,7 @@ let concertvariete = new LocationClass(
   '6900',
   'Haslachstraße 18',
   'img/24_location.jpg',
-  'Photo by Rémi Boyer on Unsplash',
+  'Photo: Rémi Boyer',
   false
 );
 let dapperparadise = new LocationClass(
@@ -198,11 +198,11 @@ let dapperparadise = new LocationClass(
   'Location',
   'Dapper Paradise',
   'Strange lights emanate from the building on the full moon nights. Lost items have been found there arranged into strange patterns in the morning. People have felt a sense of being watched in the evening.',
-  'Oggau am Neusiedler See',
+  'Oggau am See',
   '7063',
   'Seegasse 12',
   'img/28_location.jpg',
-  'Photo by Lea Katharina on Unsplash',
+  'Photo: Lea Katharina',
   false
 );
 let embers = new LocationClass(
@@ -214,7 +214,7 @@ let embers = new LocationClass(
   '7000',
   'Esterhazyplatz 1',
   'img/25_location.jpg',
-  'Photo by Annie Spratt on Unsplash',
+  'Photo: Annie Spratt',
   false
 );
 let emperorslodge = new LocationClass(
@@ -226,19 +226,19 @@ let emperorslodge = new LocationClass(
   '4830',
   'Salzbergstraße 21',
   'img/31_location.jpg',
-  'Photo by Braedon McLeod on Unsplash',
+  'Photo: Braedon McLeod',
   false
 );
-let gentalioromano = new LocationClass(
+let estadioromano = new LocationClass(
   'l8',
   'Location',
-  'Gentalio Romano',
-  'Time is reported to slow down in Gentalio Romano. Shuffling noises have been heard in the place at nicht. The old location vanished into the air in the park.',
+  'Estadio Romano',
+  'Time is reported to slow down in Estadio Romano. Shuffling noises have been heard in the place at nicht. The old location vanished into the air in the park.',
   'Melk an der Donau',
   '3390',
   'Prinzlstraße 22',
   'img/26_location.jpg',
-  'Photo by James Hose Jr on Unsplash',
+  'Photo: James Hose Jr',
   false
 );
 let greenhouse = new LocationClass(
@@ -250,7 +250,7 @@ let greenhouse = new LocationClass(
   '6020',
   'Doktor-Glatz-Straße 20',
   'img/21_location.jpg',
-  'Photo by Bruno Adamo on Unsplash',
+  'Photo: Bruno Adamo',
   false
 );
 let hermestower = new LocationClass(
@@ -262,7 +262,7 @@ let hermestower = new LocationClass(
   '1220',
   'Donau-City-Straße 11',
   'img/17_location.jpg',
-  'Photo by Rahul Bhogal on Unsplash',
+  'Photo: Rahul Bhogal',
   false
 );
 let lakestage = new LocationClass(
@@ -274,7 +274,7 @@ let lakestage = new LocationClass(
   '6900',
   'Philharmoniker Platz 1',
   'img/23_location.jpg',
-  'Photo by Max Bovkun on Unsplash',
+  'Photo: Max Bovkun',
   false
 );
 let lemongrass = new LocationClass(
@@ -286,7 +286,7 @@ let lemongrass = new LocationClass(
   '4690',
   'Gmundner Str. 9',
   'img/30_location.jpg',
-  'Photo by Marjolein vV on Unsplash',
+  'Photo: Marjolein vV',
   false
 );
 let palaislang = new LocationClass(
@@ -298,7 +298,7 @@ let palaislang = new LocationClass(
   '8010',
   'Harrachgasse 1',
   'img/20_location.jpg',
-  'Photo by ilya gorborukov on Unsplash',
+  'Photo: ilya gorborukov',
   false
 );
 let rudgerhouse = new LocationClass(
@@ -310,7 +310,7 @@ let rudgerhouse = new LocationClass(
   '2440',
   'Weinbergweg 19 - 21',
   'img/19_location.jpg',
-  'Photo by Hardik Pandya on Unsplash',
+  'Photo: Hardik Pandya',
   false
 );
 
@@ -324,7 +324,7 @@ let backstage = new Restaurant(
   '4600',
   'Grieskirchner Str. 42',
   'img/01_blueberry_toast.jpg',
-  'Photo by Joseph Gonzalez on Unsplash',
+  'Photo: Joseph Gonzalez',
   false,
   'Burgers and Steaks',
   '+43(6825)777-4678',
@@ -335,11 +335,11 @@ let boilingmoon = new Restaurant(
   'Restaurant',
   'Boiling Moon',
   'Exquisite Chinese cuisine for the whole family. A large selection, a great location and even a playground for the kids.',
-  'Oggau am Neusiedler See',
+  'Oggau am See',
   '7063',
   'Seegasse 12',
   'img/02_sandwitch_boiled_egg.jpg',
-  'Photo by Joseph Gonzalez on Unsplash',
+  'Photo: Joseph Gonzalez',
   false,
   'Chinese',
   '+43(5902)414-1766',
@@ -354,7 +354,7 @@ let harvest = new Restaurant(
   '2440',
   'Weinbergweg 19 - 21',
   'img/03_cooked_food_black_bowl.jpg',
-  'Photo by Eiliv-Sonas Aceron on Unsplash',
+  'Photo: Eiliv-Sonas Aceron',
   false,
   'Modern Vegetarian',
   '+43(4969)762-0070',
@@ -369,7 +369,7 @@ let orientalbalcony = new Restaurant(
   '2700',
   'Zehnergürtel 12',
   'img/04_pasta_dish_brown_plate.jpg',
-  'Photo by Brooke Lark on Unsplash',
+  'Photo: Brooke Lark',
   false,
   'Levantine',
   '+43(385)552-2357',
@@ -384,7 +384,7 @@ let maximus = new Restaurant(
   '7000',
   'Esterhazyplatz 1',
   'img/05_fruit_plate.jpg',
-  'Photo by Brooke Lark on Unsplash',
+  'Photo: Brooke Lark',
   false,
   'Italian',
   '+43(31)207-2665',
@@ -399,7 +399,7 @@ let palmlounge = new Restaurant(
   '3550',
   'Dr.-Karl-Dorrek-Straße 23',
   'img/06_slider_burger.jpg',
-  'Photo by Filipe de Rodrigues on Unsplash',
+  'Photo: Filipe de Rodrigues',
   false,
   'Casual American',
   '+43(4786)621-7541',
@@ -414,7 +414,7 @@ let sushimill = new Restaurant(
   '4690',
   'Gmundner Str. 9',
   'img/07_mixed_fruit.jpg',
-  'Photo by Stefan Johnson on Unsplash',
+  'Photo: Stefan Johnson',
   false,
   'Japanese',
   '+43(486)003-3277',
@@ -429,7 +429,7 @@ let tandooriwharf = new Restaurant(
   '8010',
   'Harrachgasse 1',
   'img/08_baked_burger.jpg',
-  'Photo by Pablo Merchán Montes on Unsplash',
+  'Photo: Pablo Merchán Montes',
   false,
   'Indian',
   '+43(8244)797-4874',
@@ -446,7 +446,7 @@ let rainbowmusical = new EventClass(
   '9020',
   'Uteweg 23',
   'img/12_musical.jpg',
-  'Photo by Ahmad Odeh on Unsplash',
+  'Photo: Ahmad Odeh',
   false,
   'Musical',
   '23.03.2020',
@@ -462,7 +462,7 @@ let bent = new EventClass(
   '6900',
   'Haslachstraße 18',
   'img/13_musical.jpg',
-  'Photo by NeONBRAND on Unsplash',
+  'Photo: NeONBRAND',
   false,
   'Musical',
   '11.03.2020',
@@ -473,14 +473,14 @@ let armsoflight = new EventClass(
   'e2',
   'Event',
   'Arms of Light',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'Spreading their arms out to the audience to envelope them in a warm shower of music, Arms of Light proves again that music will melt even the coldest heart.',
+  'Bregenz',
+  '6900',
+  'Philharmoniker Platz 1',
   'img/09_rock_concert.jpg',
-  'Photo by Dan Gold on Unsplash',
+  'Photo: Dan Gold',
   false,
-  'Concert',
+  'Rock Concert',
   '16.03.2020',
   '19:30',
   '52'
@@ -489,14 +489,14 @@ let thedefensive = new EventClass(
   'e3',
   'Event',
   'The Defensive',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'In Germany and Austria, <strong>The Defencive</strong> is the most successful act in history, measured by the number of their number 1 hits.',
+  'Graz',
+  '8010',
+  'Harrachgasse 1',
   'img/10_rock_concert.jpg',
-  'Photo by m on Unsplash',
+  'Photo: m',
   false,
-  'Concert',
+  'Rock Concert',
   '07.04.2020',
   '20:00',
   '60'
@@ -505,30 +505,30 @@ let thenicegals = new EventClass(
   'e4',
   'Event',
   'The Nice Gals',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'These ladies with “a bass guitar hung damn low” are coming with a compact rock show as part of their world tour with their brand new album "Out of Control". There is nothing for the fans of this band\'s classic hits to be sad about, as they will also be singing essential songs from their repertoire.',
+  'Melk an der Donau',
+  '3390',
+  'Prinzlstraße 22',
   'img/11_rock_concert.jpg',
-  'Photo by Jonathan Tieh on Unsplash',
+  'Photo: Jonathan Tieh',
   false,
   'Concert',
   '16.04.2020',
   '20:00',
   '42'
 );
-let oratorycompositions = new EventClass(
+let compositions = new EventClass(
   'e5',
   'Event',
-  'Oratory Compositions',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'Compositions',
+  'Our family concert offers a spectacular change of perspective. As the name suggests, children aged eight years and upwards have the unique opportunity to sit among the orchestral musicians and look over their shoulder.',
+  'Bregenz',
+  '6900',
+  'Philharmoniker Platz 1',
   'img/14_concert.jpg',
-  'Photo by Aditya Chinchure on Unsplash',
+  'Photo: Aditya Chinchure',
   false,
-  'Concert',
+  'Classical Concert',
   '03.05.2020',
   '20:00',
   '72'
@@ -537,30 +537,30 @@ let classicalevening = new EventClass(
   'e6',
   'Event',
   'A Classical Evening',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'An orchestra, a large choir and solo artists will present the music from across the centuries of classical music.',
+  'Graz',
+  '8010',
+  'Harrachgasse 1',
   'img/15_concert.jpg',
-  'Photo by Jonathan Tieh on Unsplash',
+  'Photo: Jonathan Tieh',
   false,
-  'Concert',
+  'Classical Concert',
   '06.05.2020',
   '19:00',
   '60'
 );
-let analoginstruments = new EventClass(
+let analogjazz = new EventClass(
   'e7',
   'Event',
-  'Analog Instruments',
-  'Lorem Ipsum.',
-  'XXX',
-  'XXX',
-  'XXX',
+  'Analog Jazz',
+  'Jazz by the Lincoln Center Orchestra & Wynton Marsalis: <em>The Music of Thelonious Monk</em>. The group describes its style as being "loud jazz". The ensemble sounds like Hiromi would play with Snarky Puppy, but in a trio.',
+  'Melk an der Donau',
+  '3390',
+  'Prinzlstraße 22',
   'img/16_concert.jpg',
-  'Photo by Corey Young on Unsplash',
+  'Photo: Corey Young',
   false,
-  'Concert',
+  'Classical Concert',
   '12.05.2020',
   '20:00',
   '80'
