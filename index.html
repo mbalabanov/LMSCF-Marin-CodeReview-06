@@ -49,15 +49,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#events-section">Events</a>
           </li>
-          <li class="nav-item ml-2">
-            <a class="btn btn-info" href="index.html">Normal Sorting</a>
-          </li>
-          <li class="nav-item ml-2">
-            <a class="btn btn-warning" href="index-asc.html">Sort Ascending</a>
-          </li>
-          <li class="nav-item ml-2">
-            <a class="btn btn-warning" href="index-desc.html">Sort Descending</a>
-          </li>
         </ul>
       </div>
     </div>
@@ -68,6 +59,11 @@
     <header class="jumbotron my-4">
       <h1 class="display-3" id="sortdirection">A Warm Welcome!</h1>
       <p class="lead">On <strong>Travel-O-Matic</strong> you learn everything you need to know about the <a href="#locations-section">locations</a> in your favorite city, the best <a href="#restaurants-section">restaurants</a> and upcoming <a href="#events-section">music events.</a> The more you know, the better you travel.</p>
+      <p>
+          <a class="btn btn-warning ml-2 active" href="index.html">Normal Sorting</a>
+          <a class="btn btn-warning ml-2" href="index-asc.html">Sort Ascending</a>
+          <a class="btn btn-warning ml-2" href="index-desc.html">Sort Descending</a>
+      </p>
     </header>
     <div class="row">
       <div class="col-12 mt-2 pt-2 text-light text-center" id="locations-section"><h2>Locations</h2></div>
@@ -96,6 +92,7 @@
 
 	<script>
     $( document ).ready(function() {
+      specialSorting = '';
       generateItems('Location');
       generateItems('Restaurant');
       generateItems('Event');

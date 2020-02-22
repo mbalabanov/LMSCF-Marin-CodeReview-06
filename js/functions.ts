@@ -1,5 +1,6 @@
-/* Array to be used for all objects */
+/* Arrays and Variables defined here for later use */
 let itemArray: string[] = [];
+let specialSorting: string = '';
 
 /* Classes Section */
 class LocationClass {
@@ -708,19 +709,8 @@ let analogjazz = new EventClass(
 
 /* Functions Section */
 
-function generateItems(classname) {
+function renderOJHTML(classname) {
   let locationContent: string = '';
-  let currentPageURL = new URLSearchParams(window.location.pathname);
-
-  if (currentPageURL == 'LMSCF-Marin-CodeReview-06/index-asc.html') {
-    itemArray.sort((a, b) => (a.creationdate > b.creationdate) ? 1 : -1);
-    $('#sortdirection').append(' (Sorted ascending)');
-  } else if (currentPageURL == 'LMSCF-Marin-CodeReview-06/index-desc.html') {
-    itemArray.sort((a, b) => (b.creationdate > a.creationdate) ? 1 : -1);
-    $('#sortdirection').append(' (Sorted descending)');
-  } else {
-    itemArray.sort((a, b) => (a.name > b.name) ? 1 : -1);
-  }
 
   for (let tempID in itemArray) {
     if (itemArray[tempID].classtype == classname) {
@@ -729,5 +719,18 @@ function generateItems(classname) {
   };
 
   $('#' + classname).replaceWith(`<div class="row text-center mt-1" id=${classname}>${locationContent}</div>`);
+};
+
+function generateItems(classname) {
+  if (specialSorting == 'asc') {
+    itemArray.sort((a, b) => (a.creationdate > b.creationdate) ? 1 : -1);
+    renderOJHTML(classname);
+  } else if (specialSorting == 'desc') {
+    itemArray.sort((a, b) => (b.creationdate > a.creationdate) ? 1 : -1);
+    renderOJHTML(classname);
+  } else {
+    itemArray.sort((a, b) => (a.name > b.name) ? 1 : -1);
+    renderOJHTML(classname);
+  };
 
 };
