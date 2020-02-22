@@ -115,13 +115,16 @@ var analogjazz = new EventClass('e7', 'Event', 'Analog Jazz', 'Jazz by the Linco
 function generateItems(classname) {
     var locationContent = '';
     var currentPageURL = new URLSearchParams(window.location.pathname);
-    if (currentPageURL == 'index-asc.html') {
+    if (currentPageURL == 'LMSCF-Marin-CodeReview-06/index-asc.html') {
         itemArray.sort(function (a, b) { return (a.creationdate > b.creationdate) ? 1 : -1; });
         $('#sortdirection').append(' (Sorted ascending)');
     }
-    else if (currentPageURL == 'index-desc.html') {
+    else if (currentPageURL == 'LMSCF-Marin-CodeReview-06/index-desc.html') {
         itemArray.sort(function (a, b) { return (b.creationdate > a.creationdate) ? 1 : -1; });
         $('#sortdirection').append(' (Sorted descending)');
+    }
+    else {
+        itemArray.sort(function (a, b) { return (a.name > b.name) ? 1 : -1; });
     }
     for (var tempID in itemArray) {
         if (itemArray[tempID].classtype == classname) {
