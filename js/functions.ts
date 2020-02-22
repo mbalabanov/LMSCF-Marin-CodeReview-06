@@ -1,5 +1,5 @@
 /* Array to be used for all objects */
-let itemArray = [];
+let itemArray: string[] = [];
 
 /* Classes Section */
 class LocationClass {
@@ -706,17 +706,26 @@ let analogjazz = new EventClass(
   '80'
 );
 
-console.log(itemArray);
-
 /* Functions Section */
+
 function generateItems(classname) {
   let locationContent: string = '';
+  let currentPageURL = new URLSearchParams(window.location.pathname);
+
+  if (currentPageURL == 'index-asc.html') {
+    itemArray.sort((a, b) => (a.creationdate > b.creationdate) ? 1 : -1);
+    $('#sortdirection').append(' (Sorted ascending)');
+  } else if (currentPageURL == 'index-desc.html') {
+    itemArray.sort((a, b) => (b.creationdate > a.creationdate) ? 1 : -1);
+    $('#sortdirection').append(' (Sorted descending)');
+  }
 
   for (let tempID in itemArray) {
     if (itemArray[tempID].classtype == classname) {
       locationContent += itemArray[tempID].display();
-    }
+    };
   };
 
   $('#' + classname).replaceWith(`<div class="row text-center mt-1" id=${classname}>${locationContent}</div>`);
+
 };

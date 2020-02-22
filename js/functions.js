@@ -111,14 +111,23 @@ var thenicegals = new EventClass('e4', 'Event', 'The Nice Gals', 'These ladies w
 var compositions = new EventClass('e5', 'Event', 'Compositions', 'Our family concert offers a spectacular change of perspective. As the name suggests, children aged eight years and upwards have the unique opportunity to sit among the orchestral musicians and look over their shoulder.', 'Bregenz', '6900', 'Philharmoniker Platz 1', 'img/14_concert.jpg', 'Photo: Aditya Chinchure', false, '2020-02-03 13:23', 'Classical Concert', '2020-05-03', '20:00', '72');
 var classicalevening = new EventClass('e6', 'Event', 'A Classical Evening', 'An orchestra, a large choir and solo artists will present music from across the centuries of classical music.', 'Graz', '8010', 'Harrachgasse 1', 'img/15_concert.jpg', 'Photo: Jonathan Tieh', false, '2020-01-02 12:27', 'Classical Concert', '2020-05-06', '19:00', '60');
 var analogjazz = new EventClass('e7', 'Event', 'Analog Jazz', 'Jazz by the Lincoln Center Orchestra & Wynton Marsalis: <em>The Music of Thelonious Monk</em>. The group describes its style as being "loud jazz". The ensemble sounds like Hiromi would play with Snarky Puppy, but in a trio.', 'Melk an der Donau', '3390', 'Prinzlstraße 22', 'img/16_concert.jpg', 'Photo: Corey Young', false, '2020-02-01 11:14', 'Classical Concert', '2020-05-12', '20:00', '80');
-console.log(itemArray);
 /* Functions Section */
 function generateItems(classname) {
     var locationContent = '';
+    var currentPageURL = new URLSearchParams(window.location.pathname);
+    if (currentPageURL == 'index-asc.html') {
+        itemArray.sort(function (a, b) { return (a.creationdate > b.creationdate) ? 1 : -1; });
+        $('#sortdirection').append(' (Sorted ascending)');
+    }
+    else if (currentPageURL == 'index-desc.html') {
+        itemArray.sort(function (a, b) { return (b.creationdate > a.creationdate) ? 1 : -1; });
+        $('#sortdirection').append(' (Sorted descending)');
+    }
     for (var tempID in itemArray) {
         if (itemArray[tempID].classtype == classname) {
             locationContent += itemArray[tempID].display();
         }
+        ;
     }
     ;
     $('#' + classname).replaceWith("<div class=\"row text-center mt-1\" id=" + classname + ">" + locationContent + "</div>");
