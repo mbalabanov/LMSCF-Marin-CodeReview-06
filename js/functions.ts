@@ -13,8 +13,9 @@ class LocationClass {
   photo: string;
   credits: string;
   favorite: boolean;
+  creationdate: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite) {
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate) {
     this.id = id;
     this.classtype = classtype;
     this.name = name;
@@ -25,9 +26,11 @@ class LocationClass {
     this.photo = photo;
     this.credits = credits;
     this.favorite = favorite;
+    this.creationdate = creationdate;
     itemArray.push(this);
   };
   display() {
+    let prettydate = moment(this.creationdate).format('MMM Do YYYY, hh:mm');
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -44,6 +47,9 @@ class LocationClass {
             <h4 class="card-title" data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
             <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
+          </div>
+          <div class="card-footer">
+            <small>Created: ${prettydate}</small>
           </div>
         </div>
       </div>
@@ -67,9 +73,12 @@ class LocationClass {
                   <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
                 </div>
               </div>
-              <h4 data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
+              <h4 class="pt-3">${this.name}</h4>
               <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
-              <p class="text-left">${this.description}</p>
+              <p>${this.description}</p>
+            </div>
+            <div class="modal-footer">
+              <small>Created: ${prettydate}</small>
             </div>
           </div>
         </div>
@@ -83,14 +92,15 @@ class Restaurant extends LocationClass {
   phone: string;
   web: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, credits,favorite, type, phone, web) {
-    super(id, classtype, name, description, city, zip, address, photo, credits, favorite);
+  constructor(id, classtype, name, description, city, zip, address, photo, credits,favorite, creationdate, type, phone, web) {
+    super(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate);
     this.type = type;
     this.phone = phone;
     this.web = web;
   };
 
   display() {
+    let prettydate = moment(this.creationdate).format('MMM Do YYYY, hh:mm');
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -109,6 +119,9 @@ class Restaurant extends LocationClass {
             <h5 class="card-text"><span class="badge badge-success text-white">${this.type}</span></h5>
             <p class="card-text"><strong>Tel. ${this.phone}<br><a href="http://${this.web}" target="_blank">${this.web}</a></strong></p>
             <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
+          </div>
+          <div class="card-footer">
+            <small>Created: ${prettydate}</small>
           </div>
         </div>
       </div>
@@ -132,11 +145,14 @@ class Restaurant extends LocationClass {
                   <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
                 </div>
               </div>
-              <h4 data-toggle="modal" data-target="#modal${this.id}">${this.name}</h4>
+              <h4 class="pt-3">${this.name}</h4>
               <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
               <h5><span class="badge badge-success text-white">${this.type}</span></h5>
               <p><strong>Tel. ${this.phone}, <a href="http://${this.web}" target="_blank">${this.web}</a></strong></p>
-              <p class="text-left">${this.description}</p>
+              <p>${this.description}</p>
+            </div>
+            <div class="modal-footer">
+              <small>Created: ${prettydate}</small>
             </div>
           </div>
         </div>
@@ -151,8 +167,8 @@ class EventClass extends LocationClass {
   eventtime: string;
   ticketprice: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite, type, eventdate, eventtime, ticketprice) {
-    super(id, classtype, name, description, city, zip, address, photo, credits, favorite);
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate, type, eventdate, eventtime, ticketprice) {
+    super(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate);
     this.type = type;
     this.eventdate = eventdate;
     this.eventtime = eventtime;
@@ -160,6 +176,8 @@ class EventClass extends LocationClass {
   };
 
   display() {
+    let prettydate = moment(this.creationdate).format('MMM Do YYYY, hh:mm');
+    let prettyeventdate =  moment(this.eventdate).format('dddd, MMMM Do YYYY');
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -177,8 +195,11 @@ class EventClass extends LocationClass {
             <p class="card-text"><strong>${this.address},<br>${this.zip} ${this.city}</strong></p>
             <h5 class="card-text"><span class="badge badge-danger text-white">${this.type}</span></h5>
             <h5 class="card-text">€${this.ticketprice}</h5>
-            <p class="card-text"><strong>${this.eventdate}, ${this.eventtime} Hr.</strong></p>
+            <p class="card-text"><strong>${prettyeventdate}, ${this.eventtime} Hr.</strong></p>
             <p class="card-text d-md-none d-lg-none"><button class="btn btn-info" data-toggle="modal" data-target="#modal${this.id}">Details</button>
+          </div>
+          <div class="card-footer">
+            <small>Created: ${prettydate}</small>
           </div>
         </div>
       </div>
@@ -202,11 +223,14 @@ class EventClass extends LocationClass {
                   <p class="text-white text-left"><span class="badge badge-dark text-white">${this.credits}</span></p>
                 </div>
               </div>
-              <h4>${this.name}</h4>
+              <h4 class="py-4" >${this.name}</h4>
               <p><strong>${this.address}, ${this.zip} ${this.city}</strong></p>
               <h5><span class="badge badge-danger text-white">${this.type}</span></h5>
-              <h5><strong>€${this.ticketprice}</strong>, ${this.eventdate}, ${this.eventtime} Hr</h5>
-              <p class="text-left">${this.description}</p>
+              <h5><strong>€${this.ticketprice}</strong><br>${prettyeventdate}, ${this.eventtime} Hr.</h5>
+              <p>${this.description}</p>
+            </div>
+            <div class="modal-footer">
+              <small>Created: ${prettydate}</small>
             </div>
           </div>
         </div>
@@ -228,7 +252,8 @@ let arenaviolet = new LocationClass(
   'Uteweg 23',
   'img/22_location.jpg',
   'Photo: Mateus Campos Felipe',
-  false
+  false,
+  '2020-02-09 14:01'
 );
 let aubergeamuse = new LocationClass(
   'l1',
@@ -240,7 +265,8 @@ let aubergeamuse = new LocationClass(
   'Grieskirchner Str. 42',
   'img/29_location.jpg',
   'Photo: Andreas Selter',
-  false
+  false,
+  '2020-01-12 17:12'
 );
 let baboonorchard = new LocationClass(
   'l2',
@@ -252,7 +278,8 @@ let baboonorchard = new LocationClass(
   'Zehnergürtel 12',
   'img/32_location.jpg',
   'Photo: Igor Karimov',
-  false
+  false,
+  '2020-02-01 11:21'
 );
 let brucknerhof = new LocationClass(
   'l3',
@@ -264,7 +291,8 @@ let brucknerhof = new LocationClass(
   'Linke Brücken Str. 12',
   'img/18_location.jpg',
   'Photo: Anthony Esau',
-  false
+  false,
+  '2019-12-28 09:34'
 );
 let concertvariete = new LocationClass(
   'l4',
@@ -276,7 +304,8 @@ let concertvariete = new LocationClass(
   'Haslachstraße 18',
   'img/24_location.jpg',
   'Photo: Rémi Boyer',
-  false
+  false,
+  '2020-01-14 13:57'
 );
 let dapperparadise = new LocationClass(
   'l5',
@@ -288,7 +317,8 @@ let dapperparadise = new LocationClass(
   'Seegasse 12',
   'img/28_location.jpg',
   'Photo: Lea Katharina',
-  false
+  false,
+  '2020-01-14 10:54'
 );
 let embers = new LocationClass(
   'l6',
@@ -300,7 +330,8 @@ let embers = new LocationClass(
   'Esterhazyplatz 1',
   'img/25_location.jpg',
   'Photo: Annie Spratt',
-  false
+  false,
+  '2020-01-09 09:23'
 );
 let emperorslodge = new LocationClass(
   'l7',
@@ -312,7 +343,8 @@ let emperorslodge = new LocationClass(
   'Salzbergstraße 21',
   'img/31_location.jpg',
   'Photo: Braedon McLeod',
-  false
+  false,
+  '2020-01-10 08:03'
 );
 let estadioromano = new LocationClass(
   'l8',
@@ -324,7 +356,8 @@ let estadioromano = new LocationClass(
   'Prinzlstraße 22',
   'img/26_location.jpg',
   'Photo: James Hose Jr',
-  false
+  false,
+  '2020-02-14 12:10'
 );
 let greenhouse = new LocationClass(
   'l9',
@@ -336,7 +369,8 @@ let greenhouse = new LocationClass(
   'Doktor-Glatz-Straße 20',
   'img/21_location.jpg',
   'Photo: Bruno Adamo',
-  false
+  false,
+  '2020-01-12 15:12'
 );
 let hermestower = new LocationClass(
   'l10',
@@ -348,7 +382,8 @@ let hermestower = new LocationClass(
   'Donau-City-Straße 11',
   'img/17_location.jpg',
   'Photo: Rahul Bhogal',
-  false
+  false,
+  '2020-01-07 08:34'
 );
 let lakestage = new LocationClass(
   'l11',
@@ -360,7 +395,8 @@ let lakestage = new LocationClass(
   'Philharmoniker Platz 1',
   'img/23_location.jpg',
   'Photo: Max Bovkun',
-  false
+  false,
+  '2020-02-04 13:14'
 );
 let lemongrass = new LocationClass(
   'l12',
@@ -372,7 +408,8 @@ let lemongrass = new LocationClass(
   'Gmundner Str. 9',
   'img/30_location.jpg',
   'Photo: Marjolein vV',
-  false
+  false,
+  '2020-01-06 09:13'
 );
 let palaislang = new LocationClass(
   'l13',
@@ -384,7 +421,8 @@ let palaislang = new LocationClass(
   'Harrachgasse 1',
   'img/20_location.jpg',
   'Photo: ilya gorborukov',
-  false
+  false,
+  '2020-02-08 09:14'
 );
 let rudgerhouse = new LocationClass(
   'l14',
@@ -396,7 +434,8 @@ let rudgerhouse = new LocationClass(
   'Weinbergweg 19 - 21',
   'img/19_location.jpg',
   'Photo: Hardik Pandya',
-  false
+  false,
+  '2020-01-27 17:47'
 );
 
 /* Restaurant Objects */
@@ -411,6 +450,7 @@ let backstage = new Restaurant(
   'img/01_blueberry_toast.jpg',
   'Photo: Joseph Gonzalez',
   false,
+  '2020-01-07 13:12',
   'Burgers and Steaks',
   '+43(6825)777-4678',
   'backstagefood.at'
@@ -426,6 +466,7 @@ let boilingmoon = new Restaurant(
   'img/02_sandwitch_boiled_egg.jpg',
   'Photo: Joseph Gonzalez',
   false,
+  '2020-02-02 11:34',
   'Chinese',
   '+43(5902)414-1766',
   'boilingtuesdays.com'
@@ -441,6 +482,7 @@ let harvest = new Restaurant(
   'img/03_cooked_food_black_bowl.jpg',
   'Photo: Eiliv-Sonas Aceron',
   false,
+  '2020-01-27 09:27',
   'Modern Vegetarian',
   '+43(4969)762-0070',
   'restaurantharvest.at'
@@ -456,6 +498,7 @@ let orientalbalcony = new Restaurant(
   'img/04_pasta_dish_brown_plate.jpg',
   'Photo: Brooke Lark',
   false,
+  '2020-02-22 15:27',
   'Levantine',
   '+43(385)552-2357',
   'orientalbalcony.at'
@@ -471,6 +514,7 @@ let maximus = new Restaurant(
   'img/05_fruit_plate.jpg',
   'Photo: Brooke Lark',
   false,
+  '2020-01-24 13:47',
   'Italian',
   '+43(31)207-2665',
   'maximusrestaurant.com'
@@ -486,6 +530,7 @@ let palmlounge = new Restaurant(
   'img/06_slider_burger.jpg',
   'Photo: Filipe de Rodrigues',
   false,
+  '2020-01-14 10:07',
   'Casual American',
   '+43(4786)621-7541',
   'palmlounge.at'
@@ -501,6 +546,7 @@ let sushimill = new Restaurant(
   'img/07_mixed_fruit.jpg',
   'Photo: Stefan Johnson',
   false,
+  '2020-02-20 12:17',
   'Japanese',
   '+43(486)003-3277',
   'sushimill.at'
@@ -516,6 +562,7 @@ let tandooriwharf = new Restaurant(
   'img/08_baked_burger.jpg',
   'Photo: Pablo Merchán Montes',
   false,
+  '2020-01-25 10:41',
   'Indian',
   '+43(8244)797-4874',
   'tandooriwharf.com'
@@ -533,8 +580,9 @@ let rainbowmusical = new EventClass(
   'img/12_musical.jpg',
   'Photo: Ahmad Odeh',
   false,
+  '2020-01-08 08:47',
   'Musical',
-  '23.03.2020',
+  '2020-03-23',
   '19:00',
   '36'
 );
@@ -549,8 +597,9 @@ let bent = new EventClass(
   'img/13_musical.jpg',
   'Photo: NeONBRAND',
   false,
+  '2020-01-07 11:07',
   'Musical',
-  '11.03.2020',
+  '2020-03-11',
   '20:00',
   '46'
 );
@@ -565,8 +614,9 @@ let armsoflight = new EventClass(
   'img/09_rock_concert.jpg',
   'Photo: Dan Gold',
   false,
+  '2020-02-06 16:36',
   'Rock Concert',
-  '16.03.2020',
+  '2020-03-16',
   '19:30',
   '52'
 );
@@ -581,8 +631,9 @@ let thedefensive = new EventClass(
   'img/10_rock_concert.jpg',
   'Photo: m',
   false,
+  '2020-01-05 15:45',
   'Rock Concert',
-  '07.04.2020',
+  '2020-04-07',
   '20:00',
   '60'
 );
@@ -597,8 +648,9 @@ let thenicegals = new EventClass(
   'img/11_rock_concert.jpg',
   'Photo: Jonathan Tieh',
   false,
+  '2020-02-14 14:44',
   'Concert',
-  '16.04.2020',
+  '2020-04-16',
   '20:00',
   '42'
 );
@@ -613,8 +665,9 @@ let compositions = new EventClass(
   'img/14_concert.jpg',
   'Photo: Aditya Chinchure',
   false,
+  '2020-02-03 13:23',
   'Classical Concert',
-  '03.05.2020',
+  '2020-05-03',
   '20:00',
   '72'
 );
@@ -629,8 +682,9 @@ let classicalevening = new EventClass(
   'img/15_concert.jpg',
   'Photo: Jonathan Tieh',
   false,
+  '2020-01-02 12:27',
   'Classical Concert',
-  '06.05.2020',
+  '2020-05-06',
   '19:00',
   '60'
 );
@@ -645,8 +699,9 @@ let analogjazz = new EventClass(
   'img/16_concert.jpg',
   'Photo: Corey Young',
   false,
+  '2020-02-01 11:14',
   'Classical Concert',
-  '12.05.2020',
+  '2020-05-12',
   '20:00',
   '80'
 );
