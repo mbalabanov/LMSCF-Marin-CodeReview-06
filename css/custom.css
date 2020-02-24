@@ -1,0 +1,15 @@
+.relative {
+    position: relative;
+}
+.absoluteTop {
+  position: absolute;
+  width: 6rem;
+  top: 0.6rem;
+  left: 0.4rem;
+}
+.absoluteBottom {
+  position: absolute;
+  width: 10rem;
+  bottom: 0;
+  left:  0.4rem;
+}
