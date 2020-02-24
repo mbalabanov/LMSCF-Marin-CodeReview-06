@@ -48,4 +48,4 @@ A Jumbotron promotion at the top of the page with a welcome text would be nice.
 - TypeScript
 
 ## 4. Out of Scope (Won't have)
-We will *not* use a JSON file. The data for the dating persons will be created as objects based on the classes/subclasses defined.
+We will *not* use a JSON file. The data for *locations*, *restaurants* and *events* will be created as objects based on the classes and subclasses defined.
