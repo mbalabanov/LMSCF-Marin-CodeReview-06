@@ -16,7 +16,7 @@ var itemArray = [];
 var specialSorting = '';
 /* Classes Section */
 var LocationClass = /** @class */ (function () {
-    function LocationClass(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate) {
+    function LocationClass(id, classtype, name, description, city, zip, address, photo, credits, creationdate) {
         this.id = id;
         this.classtype = classtype;
         this.name = name;
@@ -26,7 +26,6 @@ var LocationClass = /** @class */ (function () {
         this.address = address;
         this.photo = photo;
         this.credits = credits;
-        this.favorite = favorite;
         this.creationdate = creationdate;
         itemArray.push(this);
     }
@@ -41,8 +40,8 @@ var LocationClass = /** @class */ (function () {
 ;
 var Restaurant = /** @class */ (function (_super) {
     __extends(Restaurant, _super);
-    function Restaurant(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate, type, phone, web) {
-        var _this = _super.call(this, id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate) || this;
+    function Restaurant(id, classtype, name, description, city, zip, address, photo, credits, creationdate, type, phone, web) {
+        var _this = _super.call(this, id, classtype, name, description, city, zip, address, photo, credits, creationdate) || this;
         _this.type = type;
         _this.phone = phone;
         _this.web = web;
@@ -59,8 +58,8 @@ var Restaurant = /** @class */ (function (_super) {
 ;
 var EventClass = /** @class */ (function (_super) {
     __extends(EventClass, _super);
-    function EventClass(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate, type, eventdate, eventtime, ticketprice) {
-        var _this = _super.call(this, id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate) || this;
+    function EventClass(id, classtype, name, description, city, zip, address, photo, credits, creationdate, type, eventdate, eventtime, ticketprice) {
+        var _this = _super.call(this, id, classtype, name, description, city, zip, address, photo, credits, creationdate) || this;
         _this.type = type;
         _this.eventdate = eventdate;
         _this.eventtime = eventtime;
