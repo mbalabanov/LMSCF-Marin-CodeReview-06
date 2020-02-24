@@ -14,7 +14,10 @@ Three Areas on the Page:
 
 ### 1.2 Two Pages with different Sorting (Should have)
 There should be two additional pages called _index-asc.html_ and _index-desc.html_ that show the items sorted by their date of creation. The former should show the items in ascending order of creation, the latter should show the items in descending order of creation.
-No matter how questionable having two additional pages with only a different sorting sequence might appear, this is a bonus requirement in the assignement description. _Update:_ This was revised in the new version. Now sorting is done on the same page.
+No matter how questionable having two additional pages with only a different sorting sequence might appear, this is a bonus requirement in the assignement description.
+
+#### Update:
+The two separate pages for sorting were revised in the new version. Now all sorting by *creation date* is done index.html.
 
 ### 1.3 Nice to Have
 A Jumbotron promotion at the top of the page with a welcome text would be nice.
