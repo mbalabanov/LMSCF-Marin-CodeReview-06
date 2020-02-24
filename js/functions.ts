@@ -1,3 +1,20 @@
+/*──────────────────────────────────────────────────────┐
+│  _______                _____           _       _     │
+│ |__   __|              / ____|         (_)     | |    │
+│    | |_   _ _ __   ___| (___   ___ _ __ _ _ __ | |_   │
+│    | | | | | '_ \ / _ \\___ \ / __| '__| | '_ \| __|  │
+│    | | |_| | |_) |  __/____) | (__| |  | | |_) | |_   │
+│    |_|\__, | .__/ \___|_____/ \___|_|  |_| .__/ \__|  │
+│        __/ | |                           | |          │
+│       |___/|_|                           |_|          │
+│               __  __            _                     │
+│              |  \/  |          (_)                    │
+│              | \  / | __ _ _ __ _ _ __                │
+│              | |\/| |/ _` | '__| | '_ \               │
+│              | |  | | (_| | |  | | | | |              │
+│              |_|  |_|\__,_|_|  |_|_| |_|              │
+└──────────────────────────────────────────────────────*/
+
 /* Arrays and Variables defined here for later use */
 let itemArray: string[] = [];
 let specialSorting: string = '';
@@ -26,10 +43,16 @@ class LocationClass {
     this.photo = photo;
     this.credits = credits;
     this.creationdate = creationdate;
+
+    // This pushes the new object into the array for later use
     itemArray.push(this);
   };
   display() {
+
+    // Uses MomentJS to make the creation date human readable through sensible formatting.
     let prettydate = moment(this.creationdate).format('MMM Do, YYYY, h:mm a');
+
+    // Generates the Location card and the modal (not shown until clicked).
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -99,7 +122,11 @@ class Restaurant extends LocationClass {
   };
 
   display() {
+
+    // Uses MomentJS to make the creation date human readable through sensible formatting.
     let prettydate = moment(this.creationdate).format('MMM Do, YYYY, h:mm a');
+
+    // Generates the Restaurant card and the modal (not shown until clicked).
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -175,9 +202,12 @@ class EventClass extends LocationClass {
   };
 
   display() {
+    // Uses MomentJS to make the creation and event dates as well as the event time human readable through sensible formatting.
     let prettydate = moment(this.creationdate).format('MMM Do, YYYY, h:mm a');
     let prettyeventdate =  moment(this.eventdate).format('dddd, MMMM Do, YYYY');
     let prettyeventtime =  moment(this.eventdate).format('h:mm a');
+
+    // Generates the Event card and the modal (not shown until clicked).
     return `
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card h-100">
@@ -239,8 +269,7 @@ class EventClass extends LocationClass {
   };
 };
 
-/* Objects Section */
-
+/* Objects section */
 /* Location Objects */
 let arenaviolet = new LocationClass(
   'l0',
@@ -252,7 +281,6 @@ let arenaviolet = new LocationClass(
   'Uteweg 23',
   'img/22_location.jpg',
   'Photo: Mateus Campos Felipe',
-  false,
   '2020-02-09 14:01'
 );
 let aubergeamuse = new LocationClass(
@@ -265,7 +293,6 @@ let aubergeamuse = new LocationClass(
   'Grieskirchner Str. 42',
   'img/29_location.jpg',
   'Photo: Andreas Selter',
-  false,
   '2020-01-12 17:12'
 );
 let baboonorchard = new LocationClass(
@@ -278,7 +305,6 @@ let baboonorchard = new LocationClass(
   'Zehnergürtel 12',
   'img/32_location.jpg',
   'Photo: Igor Karimov',
-  false,
   '2020-02-01 11:21'
 );
 let brucknerhof = new LocationClass(
@@ -291,7 +317,6 @@ let brucknerhof = new LocationClass(
   'Linke Brücken Str. 12',
   'img/18_location.jpg',
   'Photo: Anthony Esau',
-  false,
   '2019-12-28 09:34'
 );
 let concertvariete = new LocationClass(
@@ -304,7 +329,6 @@ let concertvariete = new LocationClass(
   'Haslachstraße 18',
   'img/24_location.jpg',
   'Photo: Rémi Boyer',
-  false,
   '2020-01-14 13:57'
 );
 let dapperparadise = new LocationClass(
@@ -317,7 +341,6 @@ let dapperparadise = new LocationClass(
   'Seegasse 12',
   'img/28_location.jpg',
   'Photo: Lea Katharina',
-  false,
   '2020-01-14 10:54'
 );
 let embers = new LocationClass(
@@ -330,7 +353,6 @@ let embers = new LocationClass(
   'Esterhazyplatz 1',
   'img/25_location.jpg',
   'Photo: Annie Spratt',
-  false,
   '2020-01-09 09:23'
 );
 let emperorslodge = new LocationClass(
@@ -343,7 +365,6 @@ let emperorslodge = new LocationClass(
   'Salzbergstraße 21',
   'img/31_location.jpg',
   'Photo: Braedon McLeod',
-  false,
   '2020-01-10 08:03'
 );
 let estadioromano = new LocationClass(
@@ -356,7 +377,6 @@ let estadioromano = new LocationClass(
   'Prinzlstraße 22',
   'img/26_location.jpg',
   'Photo: James Hose Jr',
-  false,
   '2020-02-14 12:10'
 );
 let greenhouse = new LocationClass(
@@ -369,7 +389,6 @@ let greenhouse = new LocationClass(
   'Doktor-Glatz-Straße 20',
   'img/21_location.jpg',
   'Photo: Bruno Adamo',
-  false,
   '2020-01-12 15:12'
 );
 let hermestower = new LocationClass(
@@ -382,7 +401,6 @@ let hermestower = new LocationClass(
   'Donau-City-Straße 11',
   'img/17_location.jpg',
   'Photo: Rahul Bhogal',
-  false,
   '2020-01-07 08:34'
 );
 let lakestage = new LocationClass(
@@ -395,7 +413,6 @@ let lakestage = new LocationClass(
   'Philharmoniker Platz 1',
   'img/23_location.jpg',
   'Photo: Max Bovkun',
-  false,
   '2020-02-04 13:14'
 );
 let lemongrass = new LocationClass(
@@ -408,7 +425,6 @@ let lemongrass = new LocationClass(
   'Gmundner Str. 9',
   'img/30_location.jpg',
   'Photo: Marjolein vV',
-  false,
   '2020-01-06 09:13'
 );
 let palaislang = new LocationClass(
@@ -421,7 +437,6 @@ let palaislang = new LocationClass(
   'Harrachgasse 1',
   'img/20_location.jpg',
   'Photo: ilya gorborukov',
-  false,
   '2020-02-08 09:14'
 );
 let rudgerhouse = new LocationClass(
@@ -434,7 +449,6 @@ let rudgerhouse = new LocationClass(
   'Weinbergweg 19 - 21',
   'img/19_location.jpg',
   'Photo: Hardik Pandya',
-  false,
   '2020-01-27 17:47'
 );
 
@@ -449,7 +463,6 @@ let backstage = new Restaurant(
   'Grieskirchner Str. 42',
   'img/01_blueberry_toast.jpg',
   'Photo: Joseph Gonzalez',
-  false,
   '2020-01-07 13:12',
   'Burgers and Steaks',
   '+43(6825)777-4678',
@@ -465,7 +478,6 @@ let boilingmoon = new Restaurant(
   'Seegasse 12',
   'img/02_sandwitch_boiled_egg.jpg',
   'Photo: Joseph Gonzalez',
-  false,
   '2020-02-02 11:34',
   'Chinese',
   '+43(5902)414-1766',
@@ -481,7 +493,6 @@ let harvest = new Restaurant(
   'Weinbergweg 19 - 21',
   'img/03_cooked_food_black_bowl.jpg',
   'Photo: Eiliv-Sonas Aceron',
-  false,
   '2020-01-27 09:27',
   'Modern Vegetarian',
   '+43(4969)762-0070',
@@ -497,7 +508,6 @@ let orientalbalcony = new Restaurant(
   'Zehnergürtel 12',
   'img/04_pasta_dish_brown_plate.jpg',
   'Photo: Brooke Lark',
-  false,
   '2020-02-22 15:27',
   'Levantine',
   '+43(385)552-2357',
@@ -513,7 +523,6 @@ let maximus = new Restaurant(
   'Esterhazyplatz 1',
   'img/05_fruit_plate.jpg',
   'Photo: Brooke Lark',
-  false,
   '2020-01-24 13:47',
   'Italian',
   '+43(31)207-2665',
@@ -529,7 +538,6 @@ let palmlounge = new Restaurant(
   'Dr.-Karl-Dorrek-Straße 23',
   'img/06_slider_burger.jpg',
   'Photo: Filipe de Rodrigues',
-  false,
   '2020-01-14 10:07',
   'Casual American',
   '+43(4786)621-7541',
@@ -545,7 +553,6 @@ let sushimill = new Restaurant(
   'Gmundner Str. 9',
   'img/07_mixed_fruit.jpg',
   'Photo: Stefan Johnson',
-  false,
   '2020-02-20 12:17',
   'Japanese',
   '+43(486)003-3277',
@@ -561,7 +568,6 @@ let tandooriwharf = new Restaurant(
   'Harrachgasse 1',
   'img/08_baked_burger.jpg',
   'Photo: Pablo Merchán Montes',
-  false,
   '2020-01-25 10:41',
   'Indian',
   '+43(8244)797-4874',
@@ -579,7 +585,6 @@ let rainbowmusical = new EventClass(
   'Uteweg 23',
   'img/12_musical.jpg',
   'Photo: Ahmad Odeh',
-  false,
   '2020-01-08 08:47',
   'Musical',
   '2020-03-23',
@@ -596,7 +601,6 @@ let bent = new EventClass(
   'Haslachstraße 18',
   'img/13_musical.jpg',
   'Photo: NeONBRAND',
-  false,
   '2020-01-07 11:07',
   'Musical',
   '2020-03-11',
@@ -613,7 +617,6 @@ let armsoflight = new EventClass(
   'Philharmoniker Platz 1',
   'img/09_rock_concert.jpg',
   'Photo: Dan Gold',
-  false,
   '2020-02-06 16:36',
   'Rock Concert',
   '2020-03-16',
@@ -630,7 +633,6 @@ let thedefensive = new EventClass(
   'Harrachgasse 1',
   'img/10_rock_concert.jpg',
   'Photo: m',
-  false,
   '2020-01-05 15:45',
   'Rock Concert',
   '2020-04-07',
@@ -647,7 +649,6 @@ let thenicegals = new EventClass(
   'Prinzlstraße 22',
   'img/11_rock_concert.jpg',
   'Photo: Jonathan Tieh',
-  false,
   '2020-02-14 14:44',
   'Concert',
   '2020-04-16',
@@ -664,7 +665,6 @@ let compositions = new EventClass(
   'Philharmoniker Platz 1',
   'img/14_concert.jpg',
   'Photo: Aditya Chinchure',
-  false,
   '2020-02-03 13:23',
   'Classical Concert',
   '2020-05-03',
@@ -681,7 +681,6 @@ let classicalevening = new EventClass(
   'Harrachgasse 1',
   'img/15_concert.jpg',
   'Photo: Jonathan Tieh',
-  false,
   '2020-01-02 12:27',
   'Classical Concert',
   '2020-05-06',
@@ -698,7 +697,6 @@ let analogjazz = new EventClass(
   'Prinzlstraße 22',
   'img/16_concert.jpg',
   'Photo: Corey Young',
-  false,
   '2020-02-01 11:14',
   'Classical Concert',
   '2020-05-12',
@@ -708,7 +706,10 @@ let analogjazz = new EventClass(
 
 /* Functions Section */
 
-function renderOJHTML(classname) {
+/* This function iterates through the array of objects and picks out the objects with the specified class in the attribute.
+  Then it calls the method to create the HTML for the card and pushes it into a temporary array for the content.
+  Finally, the div with the ID based on the specified class name is grabbed by jQuery and the HTML from the temporary content array is rendered into it. */
+function renderHTML(classname) {
   let locationContent: string = '';
 
   for (let tempID in itemArray) {
@@ -720,16 +721,17 @@ function renderOJHTML(classname) {
   $('#' + classname).replaceWith(`<div class="row text-center mt-1" id=${classname}>${locationContent}</div>`);
 };
 
+/* This function only served to set the right sort order based on the value in the variable specialSorting.
+  It then passes the class name to the function renderHTML, that does all the work. */
 function generateItems(classname) {
   if (specialSorting == 'asc') {
     itemArray.sort((a, b) => (a.creationdate > b.creationdate) ? 1 : -1);
-    renderOJHTML(classname);
+    renderHTML(classname);
   } else if (specialSorting == 'desc') {
     itemArray.sort((a, b) => (b.creationdate > a.creationdate) ? 1 : -1);
-    renderOJHTML(classname);
+    renderHTML(classname);
   } else {
     itemArray.sort((a, b) => (a.name > b.name) ? 1 : -1);
-    renderOJHTML(classname);
+    renderHTML(classname);
   };
-
 };

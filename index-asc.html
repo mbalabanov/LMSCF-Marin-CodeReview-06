@@ -7,6 +7,24 @@ The only difference is that the variable 'specialSorting' is set to 'asc' for 'a
 and some of the text in the HTML makes reference to the ascending sorting order by creation.
 *** -->
 
+<!--──────────────────────────────────────────────────────────────────┐
+│   _____          _        _____            _                   ____ │
+│  / ____|        | |      |  __ \          (_)                / ___| │
+│ | |     ___   __| | ___  | |__) |_____   ___  _____      __ | |__   │
+│ | |    / _ \ / _` |/ _ \ |  _  // _ \ \ / / |/ _ \ \ /\ / / | __ \  │
+│ | |___| (_) | (_| |  __/ | | \ \  __/\ V /| |  __/\ V  V /  | |_) | │
+│  \_____\___/ \__,_|\___| |_|  \_\___| \_/ |_|\___| \_/\_/   |____/  │
+│                                                                     │
+│                      __  __            _                            │
+│                     |  \/  |          (_)                           │
+│                     | \  / | __ _ _ __ _ _ __                       │
+│                     | |\/| |/ _` | '__| | '_ \                      │
+│                     | |  | | (_| | |  | | | | |                     │
+│                     |_|  |_|\__,_|_|  |_|_| |_|                     │
+│                                                                     │
+│ Typescript and Object Exercise with JavaScript rendering & sorting  │
+└───────────────────────────────────────────────────────────────────-->
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -84,6 +102,7 @@ and some of the text in the HTML makes reference to the ascending sorting order 
 
 	<script>
     $( document ).ready(function() {
+      /* The sort order is set to 'asc' (to sort by ascneding creation date). */
       specialSorting = 'asc';
       generateItems('Location');
       generateItems('Restaurant');

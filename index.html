@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--──────────────────────────────────────────────────────────────────┐
+│   _____          _        _____            _                   ____ │
+│  / ____|        | |      |  __ \          (_)                / ___| │
+│ | |     ___   __| | ___  | |__) |_____   ___  _____      __ | |__   │
+│ | |    / _ \ / _` |/ _ \ |  _  // _ \ \ / / |/ _ \ \ /\ / / | __ \  │
+│ | |___| (_) | (_| |  __/ | | \ \  __/\ V /| |  __/\ V  V /  | |_) | │
+│  \_____\___/ \__,_|\___| |_|  \_\___| \_/ |_|\___| \_/\_/   |____/  │
+│                                                                     │
+│                      __  __            _                            │
+│                     |  \/  |          (_)                           │
+│                     | \  / | __ _ _ __ _ _ __                       │
+│                     | |\/| |/ _` | '__| | '_ \                      │
+│                     | |  | | (_| | |  | | | | |                     │
+│                     |_|  |_|\__,_|_|  |_|_| |_|                     │
+│                                                                     │
+│ Typescript and Object Exercise with JavaScript rendering & sorting  │
+└───────────────────────────────────────────────────────────────────-->
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,7 +27,10 @@
 
   <title>Travel-O-Matic</title>
 
+  <!-- Standard Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS for the overlays over the photos -->
   <link href="css/custom.css" rel="stylesheet">
 
 </head>
@@ -40,6 +61,7 @@
 
   <div class="container">
 
+    <!-- Sort links in Jumbotron lead to the alternate index pages with the different sort order of the items. -->
     <header class="jumbotron my-4">
       <h1 class="display-3" id="sortdirection">A Warm Welcome!</h1>
       <p class="lead">On <strong>Travel-O-Matic</strong> you learn everything you need to know about the <a href="#locations-section">locations</a> in your favorite city, the best <a href="#restaurants-section">restaurants</a> and upcoming <a href="#events-section">music events.</a> The more you know, the better you travel.</p>
@@ -53,14 +75,19 @@
     <div class="row">
       <div class="col-12 mt-2 pt-2 text-light text-center" id="locations-section"><h2>Locations</h2></div>
     </div>
+
+    <!-- This is populated with the location cards by the functions generateItems and renderHTML -->
     <div class="row text-center mt-2" id="Location"></div>
     <div class="row">
       <div class="col-12 p-3 mt-5 pt-4 text-light text-center" id="restaurants-section"><h2>Restaurants</h2></div>
     </div>
+
+    <!-- This is populated with the restaurant cards by the functions generateItems and renderHTML -->
     <div class="row text-center mt-2" id="Restaurant"></div>
     <div class="row">
       <div class="col-12 p-3 mt-5 pt-4 text-light text-center" id="events-section"><h2>Events</h2></div>
     </div>
+    <!-- This is populated with the event cards by the functions generateItems and renderHTML -->
     <div class="row text-center mt-2" id="Event"></div>
   </div>
 
@@ -72,11 +99,17 @@
   </footer>
 
   <script src="js/jquery-3.4.1.min.js"></script>
+
+  <!-- Using the MomentJS library for more readable formatting of the dates of creation and of events. -->
   <script src="js/moment.js"></script>
   <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+
+  <!-- These are the custom functions for this project. -->
   <script src="js/functions.js"></script>
 
 	<script>
+    /* The sort order is set to empty (to sort by ID).
+    The function generateItems is initiated with the name of the class to be generated. */
     $( document ).ready(function() {
       specialSorting = '';
       generateItems('Location');
@@ -86,4 +119,5 @@
 	</script>
 </body>
 
+<!-- -->
 </html>
