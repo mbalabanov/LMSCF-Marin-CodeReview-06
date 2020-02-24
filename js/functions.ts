@@ -13,10 +13,9 @@ class LocationClass {
   address: string;
   photo: string;
   credits: string;
-  favorite: boolean;
   creationdate: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate) {
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, creationdate) {
     this.id = id;
     this.classtype = classtype;
     this.name = name;
@@ -26,7 +25,6 @@ class LocationClass {
     this.address = address;
     this.photo = photo;
     this.credits = credits;
-    this.favorite = favorite;
     this.creationdate = creationdate;
     itemArray.push(this);
   };
@@ -93,8 +91,8 @@ class Restaurant extends LocationClass {
   phone: string;
   web: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, credits,favorite, creationdate, type, phone, web) {
-    super(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate);
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, creationdate, type, phone, web) {
+    super(id, classtype, name, description, city, zip, address, photo, credits, creationdate);
     this.type = type;
     this.phone = phone;
     this.web = web;
@@ -168,8 +166,8 @@ class EventClass extends LocationClass {
   eventtime: string;
   ticketprice: string;
 
-  constructor(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate, type, eventdate, eventtime, ticketprice) {
-    super(id, classtype, name, description, city, zip, address, photo, credits, favorite, creationdate);
+  constructor(id, classtype, name, description, city, zip, address, photo, credits, creationdate, type, eventdate, eventtime, ticketprice) {
+    super(id, classtype, name, description, city, zip, address, photo, credits, creationdate);
     this.type = type;
     this.eventdate = eventdate;
     this.eventtime = eventtime;
